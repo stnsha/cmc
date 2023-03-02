@@ -14,6 +14,10 @@ return new class extends Migration {
     {
         Schema::create('customer_details', function (Blueprint $table) {
             $table->id();
+            $table->string('customer_name');
+            $table->string('customer_phone');
+            $table->integer('order_id');
+            $table->integer('order_details_id');
             $table->softDeletes();
             $table->timestamps();
         });

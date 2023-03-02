@@ -13,7 +13,9 @@ class Order extends Model
     public $fillable = [
         'customer_name',
         'customer_phone',
-        'email',
+        'customer_email',
+        'user_id',
         'order_details_id',
+        'fpx_id',
     ];
 }

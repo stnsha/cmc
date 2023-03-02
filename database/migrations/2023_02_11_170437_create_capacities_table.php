@@ -14,9 +14,9 @@ return new class extends Migration {
     {
         Schema::create('capacities', function (Blueprint $table) {
             $table->id();
-            $table->int('capacity');
-            $table->int('vanue_id');
-            $table->int('status');
+            $table->integer('capacity');
+            $table->integer('venue_id');
+            $table->integer('status');
             $table->boolean('availability');
             $table->softDeletes();
             $table->timestamps();

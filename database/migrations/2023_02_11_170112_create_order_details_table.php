@@ -14,15 +14,15 @@ return new class extends Migration {
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
-            $table->int('order_id');
-            $table->int('pricing_id');
+            $table->integer('order_id');
+            $table->integer('customer_id');
+            $table->integer('pricing_id');
             $table->double('price');
-            $table->int('quantity');
+            $table->integer('quantity');
             $table->double('subtotal');
-            $table->int('status'); //success/failed/etc
-            $table->int('venue_id');
+            $table->integer('status'); //success/failed/etc
+            $table->integer('venue_id');
             $table->dateTime('date_chosen');
-            $table->string('fpx_id');
             $table->softDeletes();
             $table->timestamps();
         });

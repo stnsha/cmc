@@ -16,8 +16,10 @@ return new class extends Migration {
             $table->id();
             $table->string('customer_name');
             $table->string('customer_phone');
-            $table->string('email');
-            $table->int('order_details_id');
+            $table->string('customer_email');
+            $table->integer('user_id');
+            $table->integer('order_details_id');
+            $table->string('fpx_id');
             $table->softDeletes();
             $table->timestamps();
         });

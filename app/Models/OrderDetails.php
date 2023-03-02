@@ -12,6 +12,7 @@ class OrderDetails extends Model
 
     public $fillable = [
         'order_id',
+        'customer_id',
         'pricing_id',
         'price',
         'quantity',
@@ -19,6 +20,5 @@ class OrderDetails extends Model
         'status',
         'venue_id',
         'date_chosen',
-        'fpx_id',
     ];
 }
