@@ -10,5 +10,11 @@ class Capacity extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['capacity', 'venue_id', 'status', 'availability'];
+    protected $fillable = [
+        'venue_id',
+        'max_capacity',
+        'current_capacity',
+        'venue_date',
+        'status',
+    ];
 }

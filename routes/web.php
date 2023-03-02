@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CapacityController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
@@ -74,6 +75,22 @@ Route::middleware('auth')->group(function () {
         ->prefix('product')
         ->middleware('auth:web')
         ->group(function () {
+            Route::get('/view', 'view')->name('view');
+            Route::get('/update', 'update')->name('update');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/submit', 'submit')->name('submit');
+        });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::controller(CapacityController::class)
+        ->as('capacity.')
+        ->prefix('capacity')
+        ->middleware('auth:web')
+        ->group(function () {
+            Route::get('/view/{venueId}', 'view_venue_capacity')->name(
+                'view_venue_capacity'
+            );
             Route::get('/view', 'view')->name('view');
             Route::get('/update', 'update')->name('update');
             Route::get('/create', 'create')->name('create');

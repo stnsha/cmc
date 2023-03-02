@@ -4,6 +4,25 @@
         <form action="{{ route('product.submit') }}" method="post">
             @csrf
             @method('post')
+            @if(session()->has('success'))
+            <div class="bg-green-100 text-sm font-normal border rounded-md border-green-400 text-green-700 px-4 py-3">
+                {{ session()->get('success') }}
+            </div>
+            @endif
+            @if(session()->has('fail'))
+            <div class="bg-red-100 text-sm font-normal border rounded-md border-red-400 text-red-700 px-4 py-3">
+                {{ session()->get('fail') }}
+            </div>
+            @endif
+            @if ($errors->any())
+            <div class="bg-red-100 text-sm font-normal border rounded-md border-red-400 text-red-700 px-4 py-3">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="flex w-full inline-flex items-center my-2">
                 <label for="Venue" class="mx-4 w-2/5">Venue</label>
                 <input type="text" name="venue"
@@ -33,9 +52,9 @@
                 <select name="status"
                     class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required>
-                    <option value="1">Available</option>
-                    <option value="2">Low in stock</option>
-                    <option value="3">Sold out</option>
+                    <option value="Available">Available</option>
+                    <option value="Low in stock">Low in stock</option>
+                    <option value="Sold out">Sold out</option>
                 </select>
             </div>
             <div class="flex w-full inline-flex items-center my-2">
