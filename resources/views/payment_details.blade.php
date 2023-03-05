@@ -49,27 +49,21 @@
                         <tbody class="whitespace-normal">
                             @foreach ($order->order_details as $item)
                             <tr class="border-b">
-                                <td class="text-md font-normal text-gray-900 pl-2 sm:px-8 sm:py-4">{{ $item->pricing->type }}
+                                <td class="text-md font-normal text-gray-900 pl-2 sm:px-8 sm:py-4">{{
+                                    $item->pricing->type }}
                                 </td>
                                 <td class="text-md font-normal text-gray-900 pl-2 sm:px-8 sm:py-4">RM {{
                                     number_format($item->pricing->price,
                                     2)
                                     }}</td>
-                                <td class="text-md font-normal text-gray-900 pl-2 sm:px-8 sm:py-4">{{ $item->quantity }}</td>
+                                <td class="text-md font-normal text-gray-900 pl-2 sm:px-8 sm:py-4">{{ $item->quantity }}
+                                </td>
                                 <td class="text-md font-normal text-gray-900 pl-2 sm:px-8 sm:py-4">RM {{
                                     number_format($item->subtotal,
                                     2)
                                     }}</td>
                             </tr>
                             @endforeach
-                            <tr>
-                                <th colspan="3" class="text-right">Subtotal</th>
-                                <td colspan="0" class="pl-2 sm:px-8">RM {{ number_format($order->subtotal, 2) }}</td>
-                            </tr>
-                            <tr>
-                                <th colspan="3" class="text-right">Service charge</th>
-                                <td class="pl-2 sm:px-8">RM {{ number_format($order->service_charge, 2) }}</td>
-                            </tr>
                             <tr>
                                 <th colspan="3" class="text-right">Total</th>
                                 <td class="pl-2 sm:px-8">RM {{ number_format($order->total, 2) }}</td>

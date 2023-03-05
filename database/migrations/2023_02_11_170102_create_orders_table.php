@@ -20,8 +20,6 @@ return new class extends Migration {
             $table->integer('customer_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->integer('order_details_id')->nullable();
-            $table->double('subtotal');
-            $table->double('service_charge')->nullable();
             $table->double('total');
             $table->integer('venue_id');
             $table->dateTime('date_chosen');

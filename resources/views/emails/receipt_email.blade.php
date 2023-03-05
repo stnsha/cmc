@@ -66,14 +66,6 @@
             @endforeach
         </tr>
         <tr>
-            <th>Subtotal</th>
-            <td colspan="3">RM {{ number_format((float)$mailData['order']['subtotal'], 2, '.', '')}}</td>
-        </tr>
-        <tr>
-            <th>Service charge</th>
-            <td colspan="3">RM {{ number_format((float)$mailData['order']['service_charge'], 2, '.', '')}}</td>
-        </tr>
-        <tr>
             <th>Total</th>
             <td colspan="3">RM {{ number_format((float)$mailData['order']['total'], 2, '.', '')}}</td>
         </tr>

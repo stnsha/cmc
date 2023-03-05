@@ -19,8 +19,6 @@ class Order extends Model
         'customer_id',
         'user_id',
         'order_details_id',
-        'subtotal',
-        'service_charge',
         'total',
         'venue_id',
         'date_chosen',

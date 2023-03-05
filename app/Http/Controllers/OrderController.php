@@ -271,11 +271,11 @@ class OrderController extends Controller
                 $total += $subtotal;
             }
 
-            $service_charge = 0.035 * $total;
-            $total_service = $total + $service_charge;
-            $order->subtotal = $total;
-            $order->total = $total_service;
-            $order->service_charge = $service_charge;
+            //$service_charge = 0.035 * $total;
+            //$total_service = $total + $service_charge;
+            $order->total = $total;
+            //$order->total = $total_service;
+            //$order->service_charge = $service_charge;
             $order->save();
             $order_id = $order->id;
         } else {
@@ -380,13 +380,13 @@ class OrderController extends Controller
                 $total += $subtotal;
             }
 
-            $service_charge = 0.035 * $total;
-            $total_service = $total + $service_charge;
+            //$service_charge = 0.035 * $total;
+            //$total_service = $total + $service_charge;
             $create_order->order_details_id = $create_order_details->id;
             $create_order->customer_id = $create_customer_details->id;
-            $create_order->subtotal = $total;
-            $create_order->service_charge = $service_charge;
-            $create_order->total = $total_service;
+            $create_order->total = $total;
+            //$create_order->service_charge = $service_charge;
+            //$create_order->total = $total_service;
             $create_order->save();
             $order_id = $create_order->id;
         }

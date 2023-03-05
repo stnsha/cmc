@@ -43,7 +43,7 @@ class PaymentController extends Controller
 
     public function confirm_payment(Request $request)
     {
-        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+       $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
         // $stripe = new \Stripe\StripeClient(
         //     'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
         // );
