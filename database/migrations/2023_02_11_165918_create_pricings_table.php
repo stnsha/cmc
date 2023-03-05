@@ -30,8 +30,10 @@ return new class extends Migration {
                 'type' => 'Elderly & kids',
                 'price' => 39,
             ],
-            'type' => 'Group',
-            'price' => 59,
+            [
+                'type' => 'Group',
+                'price' => 59,
+            ],
         ];
 
         DB::table('pricings')->insert($data);
