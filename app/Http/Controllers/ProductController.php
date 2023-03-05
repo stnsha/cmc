@@ -70,6 +70,8 @@ class ProductController extends Controller
             $request['date_end']
         );
 
+        //dd($date_range);
+
         if ($validated) {
             $venue = Venue::create([
                 'venue' => $request['venue'],
@@ -95,14 +97,10 @@ class ProductController extends Controller
                     'status' => $request['status'],
                 ]);
             }
-
-            return redirect()
-                ->route('product.view')
-                ->with('success', 'Venue is successfully created.');
         }
 
-        //venue
-        //pricing
-        //capacity
+        return redirect()
+            ->route('product.view')
+            ->with('success', 'Venue is successfully created.');
     }
 }

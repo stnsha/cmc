@@ -101,4 +101,12 @@ class LoginController extends Controller
     // public function forgot_password()
     // {
     // }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+
+        return redirect()->route('auth.login');
+    }
 }

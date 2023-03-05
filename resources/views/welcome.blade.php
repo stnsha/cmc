@@ -1,7 +1,8 @@
 <x-guest-layout>
-    <div class="flex flex-row justify-center text-base text-gray-900 bg-cover bg-scroll mt-[60px] md:mt-[70px] lg:mt-[70px] xl:mt-[70px]"
+    <div class="flex flex-row justify-center text-base text-gray-900 bg-cover bg-scroll"
         style="background-image: url('img/img3.jpg');">
-        <div class="flex flex-col bg-slate-200 mt-[150px] my-[150px] ml-[650px] p-[100px] rounded-lg">
+        <div
+            class="flex flex-col bg-slate-200 mt-[150px] my-[150px] p-[100px] rounded-lg md:ml-0 p-[50px] lg:ml-0 p-[50px] sm:ml-[650px] md:ml-0">
             <span class="flex text-5xl font-bold text-secondary p-2">Iftar Ramadhan 2023</span>
             <span class="flex text-2xl font-bold text-secondary px-2">By Cahya Mata Catering (CMC)</span>
             <div class="flex flex-row ml-2 mt-6">
@@ -14,13 +15,39 @@
                     Tarikh: 26 Mac 2023 - 18 April 2023
                 </span>
             </div>
-            <a href="#" type="button"
-                class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base text-center mt-6 p-4 w-[200px]">Tempah sekarang</a>
+            <a href="{{ route('order_form') }}" type="button"
+                class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base text-center mt-6 p-4 w-[200px]">Tempah
+                sekarang</a>
         </div>
     </div>
-    <div class="flex flex-col justify-center items-center bg-slate-200 p-[10px]">
+    <div class="flex flex-row justify-center items-center bg-slate-200 p-[10px] w-full">
+        {{-- <div class="flex flex-col sm:flex-row justify-center items-center">
+            <div class="sm:mx-32">
+                </ <div class="flex flex-col sm:mx-32  block sm:hidden">
+                <div class="flex flex-col mt-8 justify-center items-center text-center">
+                    <span class="text-lg font-bold text-gray-900">Dewan Arena CMC</span>
+                    <span class="text-sm font-normal text0gray-900">13, Jalan Ujong Pasir 1, Kampung Ujong Pasir, 70400
+                        Seremban, Negeri Sembilan</span>
+                    <a href="{{ route('order_form') }}" type="button"
+                        class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base text-center mt-6 p-4 w-[200px]">Tempah
+                        sekarang</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center items-center">
+            <div class="flex flex-col sm:mx-32  block sm:hidden">
+                <div class="flex flex-col mt-8 justify-center items-center text-center">
+                    <span class="text-lg font-bold text-gray-900">Dewan Arena CMC</span>
+                    <span class="text-sm font-normal text0gray-900">13, Jalan Ujong Pasir 1, Kampung Ujong Pasir, 70400
+                        Seremban, Negeri Sembilan</span>
+                    <a href="{{ route('order_form') }}" type="button"
+                        class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base text-center mt-6 p-4 w-[200px]">Tempah
+                        sekarang</a>
+                </div>
+            </div>
+        </div> --}}
         <div class="flex sm:flex-row flex-col w-full text-center">
-            <div class="flex flex-col items-center bg-light-gray m-[30px] p-[30px] w-[600px] rounded-lg">
+            <div class="flex flex-col items-center bg-light-gray m-[30px] p-[30px] sm:w-[600px] rounded-lg">
                 <span class="text-3xl font-bold text-secondary p-2">Dewasa</span>
                 <svg class="w-2/5 h-auto" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -200,7 +227,7 @@
                         class="text-lg font-bold text-secondary inline-block align-top">RM</span>{{ number_format(65, 2)
                     }}</span>
             </div>
-            <div class="flex flex-col items-center bg-light-gray m-[30px] p-[30px] w-[600px] rounded-lg">
+            <div class="flex flex-col items-center bg-light-gray m-[30px] p-[30px] sm:w-[600px] rounded-lg">
                 <span class="text-3xl font-bold text-secondary p-2">Warga Emas & Kanak-Kanak</span>
                 <svg class="w-2/5 h-auto" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -388,10 +415,11 @@
                     <ul class="list-disc">
                         <li>Warga emas berumur 60 tahun ke atas</li>
                         <li>6 - 12 tahun bagi kanak-kanak</li>
+                        <li>Percuma bagi kanak-kanak 5 tahun ke bawah</li>
                     </ul>
                 </span>
             </div>
-            <div class="flex flex-col items-center bg-light-gray m-[30px] p-[30px] w-[600px] rounded-lg">
+            <div class="flex flex-col items-center bg-light-gray m-[30px] p-[30px] sm:w-[600px] rounded-lg">
                 <span class="text-3xl font-bold text-secondary p-2">Group</span>
                 <svg class="w-2/5 h-auto" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_3_122)">
@@ -963,5 +991,5 @@
             </div>
             <div class="w-1/2"></div>
         </div>
-    </div> --}}
+    </div>--}}
 </x-guest-layout>

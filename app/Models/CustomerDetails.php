@@ -10,10 +10,5 @@ class CustomerDetails extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'customer_name',
-        'customer_phone',
-        'order_id',
-        'order_details_id',
-    ];
+    protected $fillable = ['customer_name', 'customer_phone', 'order_id'];
 }

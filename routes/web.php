@@ -5,6 +5,8 @@ use App\Http\Controllers\CapacityController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,13 +32,33 @@ Route::controller(LoginController::class)
         Route::post('/register', 'register')->name('signup');
         Route::get('/login', 'view_login_page')->name('login');
         Route::post('/validate', 'validate_login')->name('validate');
-        // Route::get('/logout', 'logout')
-        //     ->name('logout')
-        //     ->middleware(['auth']);
+        Route::get('/logout', 'logout')
+            ->name('logout')
+            ->middleware(['auth']);
     });
 
-Route::get('/tempah-sekarang', function () {
-    return view('orders.index');
+/** customer order */
+Route::controller(OrderController::class)->group(function () {
+    Route::get('/order_form', 'order_form')->name('order_form');
+    Route::post('/submit_venue', 'submit_venue')->name('submit_venue');
+    Route::get('/customer_details', 'customer_details')->name(
+        'customer_details'
+    );
+    Route::post('/submit_details', 'submit_details')->name('submit_details');
+    Route::get('/payment_details/{order_id}', 'payment_details')->name(
+        'payment_details'
+    );
+    Route::get('/edit_order/{order_id}', 'edit_order')->name('edit_order');
+    Route::post('/update_customer/{order_id}', 'update_customer')->name(
+        'update_customer'
+    );
+});
+
+Route::controller(PaymentController::class)->group(function () {
+    Route::get('/submit_payment/{order_id}', 'submit_payment')->name(
+        'submit_payment'
+    );
+    Route::get('/successful', 'confirm_payment')->name('confirm_payment');
 });
 
 Route::controller(MailController::class)
@@ -47,6 +69,9 @@ Route::controller(MailController::class)
             'verify_email'
         );
         Route::get('/confirm/{email}', 'email_verified')->name('confirm');
+        Route::get('/order/{order_id}', 'email_receipt')->name(
+            'email_receipt'
+        );
     });
 
 Route::middleware('auth')->group(function () {

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EmailReceipt;
 use App\Mail\VerifyRegister;
+use App\Models\Capacity;
+use App\Models\Order;
 use App\Models\User;
+use App\Models\Venue;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -32,5 +36,25 @@ class MailController extends Controller
                 'success',
                 'Your email has been verified. Login to view your order.'
             );
+    }
+
+    public function email_receipt($order_id)
+    {
+        $order = Order::find($order_id);
+        $venue = Capacity::find($order->venue_id);
+        $venue_id = $venue->venue_id;
+        $venue = Venue::find($venue_id);
+        $venue = $venue->venue;
+        $venue_date = date('d-m-Y l', strtotime($order->date_chosen));
+
+        $mailData = [
+            'order' => $order,
+            'venue' => $venue,
+            'venue_date' => $venue_date,
+        ];
+        //dd($mailData['order']['subtotal']);
+        //Mail::to($order->customer_email)->send(new EmailReceipt($mailData));
+
+        return view('payment.confirm', ['order' => $order]);
     }
 }

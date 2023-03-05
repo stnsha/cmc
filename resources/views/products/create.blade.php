@@ -68,7 +68,7 @@
             </div>
             <div class="flex w-full inline-flex items-center my-2">
                 <label for="adult" class="mx-4 w-2/5">Elderly & kids</label>
-                <input type="text" name="type[Eldery & kids][]"
+                <input type="text" name="type[Elderly & kids][]"
                     class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required>
             </div>

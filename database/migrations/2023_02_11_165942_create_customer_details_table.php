@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->string('customer_name');
             $table->string('customer_phone');
             $table->integer('order_id');
-            $table->integer('order_details_id');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class OrderDetails extends Model
@@ -12,13 +13,14 @@ class OrderDetails extends Model
 
     public $fillable = [
         'order_id',
-        'customer_id',
         'pricing_id',
         'price',
         'quantity',
         'subtotal',
-        'status',
-        'venue_id',
-        'date_chosen',
     ];
+
+    public function pricing(): HasOne
+    {
+        return $this->hasOne(Pricing::class, 'id', 'pricing_id');
+    }
 }
