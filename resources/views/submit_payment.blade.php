@@ -24,8 +24,8 @@
     // This is a public sample test API key.
     // Don’t submit any personally identifiable information in requests made with this key.
     // Sign in to see your own test API key embedded in code samples.
-    //const stripe = Stripe("{!! env('STRIPE_KEY') !!}");
-    const stripe = Stripe("pk_test_51MgKcIJLVz02y2Vzk7XdeiTtni1OU5boiI6FKfg6pXrNTna9ema2Yoxdy4BbU9wN4BCnhiOvI9hqtPjgx6NxLJQ500bXEKfNrm");
+    const stripe = Stripe("{!! env('STRIPE_KEY') !!}");
+    //const stripe = Stripe("pk_test_51MgKcIJLVz02y2Vzk7XdeiTtni1OU5boiI6FKfg6pXrNTna9ema2Yoxdy4BbU9wN4BCnhiOvI9hqtPjgx6NxLJQ500bXEKfNrm");
 
     const options = {
         clientSecret:
