@@ -29,7 +29,7 @@ return new class extends Migration {
             'name' => 'Admin CMC',
             'email' => 'nabilajunho@gmail.com',
             'password' => Hash::make('cmc2023'),
-            'user_role' => 1,
+            'role' => 1,
         ]);
     }
 
