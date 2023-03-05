@@ -53,7 +53,7 @@ class MailController extends Controller
             'venue_date' => $venue_date,
         ];
         //dd($mailData['order']['subtotal']);
-        //Mail::to($order->customer_email)->send(new EmailReceipt($mailData));
+        Mail::to($order->customer_email)->send(new EmailReceipt($mailData));
 
         return view('payment.confirm', ['order' => $order]);
     }
