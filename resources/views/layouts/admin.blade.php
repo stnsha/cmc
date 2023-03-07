@@ -68,7 +68,7 @@
                             </a>
                         </li>
                         <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                            <a href="ui.html"
+                            <a href="#"
                                 class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                 <i class="fa-solid fa-file mx-2"></i>
                                 Reports
@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         <li class="w-full h-full py-3 px-2 border-b border-300-border">
-                            <a href="modals.html"
+                            <a href="{{ route('auth.logout') }}"
                                 class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                 <i class="fa-solid fa-right-from-bracket mx-2"></i>
                                 Logout
