@@ -47,20 +47,21 @@
             <tbody>
 
                 @foreach ($venues as $item)
+
                 <tr class="bg-white border-b justify-center items-center">
                     <td class="px-2 py-3 text-end">{{ $loop->iteration }}.</td>
-                    <td class="px-2 py-3">{{ $item->venue }}</td>
+                    <td class="px-2 py-3">{{ $item->venue_name.', '.$item->venue_location }}</td>
                     <td class="py-3">
-                        <a href="{{ route('capacity.view_venue_capacity', ['venueId' => $item->id]) }}"
+                        <a href="{{ route('capacity.view_venue_capacity', ['venue_id' => $item->id]) }}"
                             class="bg-medium-gray text-white px-2.5 py-2.5 text-sm font-normal rounded-xl mb-3">View
                             current capacity</a>
                     </td>
                     <td class="py-3">
                         <div class="flex flex-col items-start">
-                            @foreach ($pricings as $item)
+                            @foreach ($pricings as $price)
                             <div class="inline-flex">
-                                <span class="text-sm font-normal text-gray-500 mr-2">{{ $item->type }}:</span>
-                                <span class="text-sm font-normal text-gray-500">RM {{ number_format($item->price, 2)
+                                <span class="text-sm font-normal text-gray-500 mr-2">{{ $price->type }}:</span>
+                                <span class="text-sm font-normal text-gray-500">RM {{ number_format($price->price, 2)
                                     }}</span>
                             </div>
                             @endforeach
@@ -68,7 +69,7 @@
                     </td>
                     <td class="py-3 justify-center items-center content-center">
                         <div class="flex flex-col w-1/2 text-center">
-                            <a href="{{ route('product.update') }}" type="button"
+                            <a href="{{ route('product.update', ['id' => $item->id]) }}" type="button"
                                 class="bg-medium-gray text-white px-2.5 py-2.5 text-sm font-normal rounded-xl mb-3">Update
                                 venue</a>
                         </div>

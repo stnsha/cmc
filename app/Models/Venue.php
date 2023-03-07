@@ -11,7 +11,12 @@ class Venue extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['venue', 'date_start', 'date_end'];
+    protected $fillable = [
+        'venue_name',
+        'venue_location',
+        'date_start',
+        'date_end',
+    ];
 
     public function capacity(): HasOne
     {

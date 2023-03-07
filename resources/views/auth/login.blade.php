@@ -9,7 +9,7 @@
             <div class="w-full bg-light-gray rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-secondary md:text-2xl">
-                        Sign in to your account
+                        Admin login
                     </h1>
                     <form class="space-y-4 md:space-y-6" action="{{ route('auth.validate') }}" method="post">
                         @csrf
@@ -49,7 +49,7 @@
                                 class="bg-gray-50 border border-gray-300 text-secondary sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                                 required>
                         </div>
-                        <div class="flex items-center justify-between">
+                        {{-- <div class="flex items-center justify-between">
                             <div class="flex flex-col">
                                 <a href="{{ route('auth.register') }}"
                                     class="text-sm font-medium text-primary-600 hover:underline">New here? Register
@@ -57,7 +57,7 @@
                                 <a href="#" class="text-sm font-medium text-primary-600 hover:underline">Forgot
                                     password?</a>
                             </div>
-                        </div>
+                        </div> --}}
                         <button type="submit"
                             class="w-full text-white bg-brown-cream hover:bg-light-brown focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign
                             in</button>

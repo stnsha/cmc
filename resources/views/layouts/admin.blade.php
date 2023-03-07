@@ -46,21 +46,13 @@
                         <li class="w-full h-full py-3 px-2 border-b border-light-border">
                             <a href="{{ route('product.view') }}"
                                 class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fa-solid fa-box mx-2"></i>
-                                Products
-                                <span><i class="fa fa-angle-right float-right"></i></span>
-                            </a>
-                        </li>
-                        <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                            <a href="{{ route('product.view') }}"
-                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                 <i class="fa-solid fa-building mx-2"></i>
                                 Venues & Capacity
                                 <span><i class="fa fa-angle-right float-right"></i></span>
                             </a>
                         </li>
                         <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                            <a href="buttons.html"
+                            <a href="{{ route('orders.view') }}"
                                 class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                 <i class="fa-solid fa-cart-shopping mx-2"></i>
                                 Orders
@@ -68,7 +60,7 @@
                             </a>
                         </li>
                         <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                            <a href="tables.html"
+                            <a href="{{ route('customers.view') }}"
                                 class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                 <i class="fa-solid fa-user mx-2"></i>
                                 Customers

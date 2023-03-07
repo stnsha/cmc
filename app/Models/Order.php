@@ -38,6 +38,6 @@ class Order extends Model
 
     public function capacities(): HasOne
     {
-        return $this->hasOne(Capacity::class, 'venue_id', 'venue_id');
+        return $this->hasOne(Capacity::class, 'id', 'venue_id');
     }
 }

@@ -24,26 +24,32 @@
             </div>
             @endif
             <div class="flex w-full inline-flex items-center my-2">
-                <label for="Venue" class="mx-4 w-2/5">Venue</label>
-                <input type="text" name="venue"
+                <label for="Venue" class="mx-4 w-2/5">Venue Name</label>
+                <input type="text" name="venue_name" value="{{ old('venue_name') }}"
+                    class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    required>
+            </div>
+            <div class="flex w-full inline-flex items-center my-2">
+                <label for="Venue" class="mx-4 w-2/5">Venue Location</label>
+                <input type="text" name="venue_location" value="{{ old('venue_location') }}"
                     class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required>
             </div>
             <div class="flex w-full inline-flex items-center my-2">
                 <label for="Venue" class="mx-4 w-2/5">Date Start</label>
-                <input type="datetime-local" name="date_start"
+                <input type="datetime-local" name="date_start" value="{{ old('date_start') }}"
                     class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required>
             </div>
             <div class="flex w-full inline-flex items-center my-2">
                 <label for="Venue" class="mx-4 w-2/5">Date End</label>
-                <input type="datetime-local" name="date_end"
+                <input type="datetime-local" name="date_end" value="{{ old('date_end') }}"
                     class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required>
             </div>
             <div class="flex w-full inline-flex items-center my-2">
                 <label for="capacity" class="mx-4 w-2/5">Capacity per day</label>
-                <input type="text" name="capacity"
+                <input type="text" name="capacity" value="{{ old('capacity') }}"
                     class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required>
             </div>
@@ -57,6 +63,8 @@
                     <option value="Sold out">Sold out</option>
                 </select>
             </div>
+
+            @if (count($pricings) == 0)
             <div class="flex w-full inline-flex items-center my-2">
                 <label for="Pricing" class="mx-4 w-full font-bold">Pricing list</label>
             </div>
@@ -78,6 +86,8 @@
                     class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required>
             </div>
+            @endif
+
             <div class="flex justify-end w-full inline-flex items-center my-2">
                 <button
                     class="text-white bg-brown-cream hover:bg-light-brown focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Submit</button>

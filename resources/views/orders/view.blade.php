@@ -1,67 +1,74 @@
-<x-guest-layout>
-    <section class="bg-white mt-[60px] md:mt-[70px] lg:mt-[70px] xl:mt-[70px]">
-        <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-            <h2 class="mb-4 text-xl font-bold text-gray-900">Tempah sekarang</h2>
-            <form action="#">
-                <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                    <div class="sm:col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nama penuh</label>
-                        <input type="text" name="name" id="name"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                            placeholder="Type product name" required="">
-                    </div>
-                    <div class="sm:col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">No. telefon</label>
-                        <input type="text" name="name" id="name"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                            placeholder="Type product name" required="">
-                    </div>
-                    <div class="w-full">
-                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900">Pilih tarikh</label>
-                        <input type="text" name="brand" id="brand"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                            placeholder="Product brand" required="">
-                    </div>
-                    <div class="w-full">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Pilih tempat</label>
-                        <input type="number" name="price" id="price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                            placeholder="$2999" required="">
-                    </div>
-                    <div class="w-full">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Dewasa</label>
-                        <select name="1" id=""
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-                            @foreach (range(1, 30) as $number)
-                            <option value="{{ $number }}">{{ $number }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="w-full">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Warga emas &
-                            kanak-kanak</label>
-                        <select name="2" id=""
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-                            @foreach (range(1, 30) as $number)
-                            <option value="{{ $number }}">{{ $number }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="w-full">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Group</label>
-                        <select name="3" id=""
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-                            @foreach (range(30, 100) as $number)
-                            <option value="{{ $number }}">{{ $number }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <button type="submit"
-                    class="text-white bg-brown-cream hover:bg-light-brown focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm mt-4 px-5 py-2.5 text-center mr-3 md:mr-0">
-                    Seterusnya
-                </button>
-            </form>
-        </div>
-    </section>
-</x-guest-layout>
+<x-admin-layout>
+    <div class="text-lg font-bold text-secondary mb-6">Orders</div>
+    @if(session()->has('success'))
+    <div class="bg-green-100 text-sm font-normal border rounded-md border-green-400 text-green-700 px-4 py-3">
+        {{ session()->get('success') }}
+    </div>
+    @endif
+    @if(session()->has('fail'))
+    <div class="bg-red-100 text-sm font-normal border rounded-md border-red-400 text-red-700 px-4 py-3">
+        {{ session()->get('fail') }}
+    </div>
+    @endif
+    @if ($errors->any())
+    <div class="bg-red-100 text-sm font-normal border rounded-md border-red-400 text-red-700 px-4 py-3">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <div class="relative overflow-x-auto mt-2 shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-start text-gray-500">
+            <!-- venue / capacity / pricing -->
+            <thead class="text-xs text-white uppercase bg-medium-gray">
+                <tr>
+                    <th scope="col" class="px-2 py-3">
+                        Order ID
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Customer details
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Total
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach ($orders as $item)
+
+                <tr class="bg-white border-b justify-center items-center">
+                    <td class="px-2 py-3 font-bold">#{{ $item->id }}</td>
+                    <td class="py-3">
+                        {{ $item->customer_name }} <br>
+                        {{ $item->customer_phone }} <br>
+                        {{ $item->customer_email }} <br>
+                    </td>
+                    <td class="py-3">
+                        RM {{ number_format((float)$item->total, 2, '.', '') }}
+                    </td>
+                    <td class="py-3">
+                        {{ $item->status }}
+                    </td>
+                    <td class="py-3 justify-center items-center content-center">
+                        <div class="flex flex-col w-1/2 text-center">
+                            <a href="{{ route('orders.view_order', ['order_id' => $item->id]) }}" type="button"
+                                class="bg-medium-gray text-white px-2.5 py-2.5 text-sm font-normal rounded-xl mb-3">View
+                                order</a>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+
+            </tbody>
+        </table>
+    </div>
+</x-admin-layout>

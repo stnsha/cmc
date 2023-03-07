@@ -49,8 +49,9 @@
             <th>Quantity</th>
             <th>Subtotal</th>
         </tr>
+
+        @foreach ($mailData['order']->order_details as $item)
         <tr>
-            @foreach ($mailData['order']->order_details as $item)
             <td>
                 {{ $item->pricing->type }}
             </td>
@@ -63,8 +64,9 @@
             <td>
                 RM {{ number_format($item->subtotal, 2) }}
             </td>
-            @endforeach
         </tr>
+        @endforeach
+
         <tr>
             <th>Total</th>
             <td colspan="3">RM {{ number_format((float)$mailData['order']['total'], 2, '.', '')}}</td>

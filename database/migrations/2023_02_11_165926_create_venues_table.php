@@ -16,7 +16,8 @@ return new class extends Migration {
     {
         Schema::create('venues', function (Blueprint $table) {
             $table->id();
-            $table->string('venue');
+            $table->string('venue_name');
+            $table->string('venue_location');
             $table->dateTime('date_start');
             $table->dateTime('date_end');
             $table->softDeletes();
@@ -26,7 +27,7 @@ return new class extends Migration {
         // $data = [
         //     [
         //         'venue' => 'Dewan Arena CMC, Ujong Pasir',
-        //         'date_start' => '2023-03-24 00:00:00',
+        //         'date_start' => '2023-03-24 18:00:00',
         //         'date_end' => '2023-04-18 00:00:00',
         //     ],
         //     [

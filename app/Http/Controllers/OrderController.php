@@ -12,6 +12,16 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function view()
+    {
+        return view('orders.view', ['orders' => Order::paginate(10)]);
+    }
+
+    public function view_order($order_id)
+    {
+        return view('orders.update', ['order' => Order::find($order_id)]);
+    }
+
     public function order_form()
     {
         $venues = Venue::all();

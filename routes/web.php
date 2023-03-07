@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CapacityController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CustomerDetailsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
@@ -69,9 +70,7 @@ Route::controller(MailController::class)
             'verify_email'
         );
         Route::get('/confirm/{email}', 'email_verified')->name('confirm');
-        Route::get('/order/{order_id}', 'email_receipt')->name(
-            'email_receipt'
-        );
+        Route::get('/order/{order_id}', 'email_receipt')->name('email_receipt');
     });
 
 Route::middleware('auth')->group(function () {
@@ -101,9 +100,32 @@ Route::middleware('auth')->group(function () {
         ->middleware('auth:web')
         ->group(function () {
             Route::get('/view', 'view')->name('view');
-            Route::get('/update', 'update')->name('update');
+            Route::get('/update/{id}', 'update')->name('update');
             Route::get('/create', 'create')->name('create');
             Route::post('/submit', 'submit')->name('submit');
+            Route::put('/update/{id}', 'update_venue')->name('update_venue');
+        });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::controller(OrderController::class)
+        ->as('orders.')
+        ->prefix('orders')
+        ->middleware('auth:web')
+        ->group(function () {
+            Route::get('/view', 'view')->name('view');
+            Route::get('/view/{order_id}', 'view_order')->name('view_order');
+        });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::controller(CustomerDetailsController::class)
+        ->as('customers.')
+        ->prefix('customers')
+        ->middleware('auth:web')
+        ->group(function () {
+            Route::get('/view', 'view')->name('view');
+            Route::get('/view/{order_id}', 'view_order')->name('view_order');
         });
 });
 
@@ -113,11 +135,14 @@ Route::middleware('auth')->group(function () {
         ->prefix('capacity')
         ->middleware('auth:web')
         ->group(function () {
-            Route::get('/view/{venueId}', 'view_venue_capacity')->name(
+            Route::get('/view/{venue_id}', 'view_venue_capacity')->name(
                 'view_venue_capacity'
             );
-            Route::get('/view', 'view')->name('view');
-            Route::get('/update', 'update')->name('update');
+            // Route::get('/view/{id}', 'view')->name('view');
+            Route::get('/update/{id}', 'update')->name('update');
+            Route::put('/update/{id}', 'update_capacity')->name(
+                'update_capacity'
+            );
             Route::get('/create', 'create')->name('create');
             Route::post('/submit', 'submit')->name('submit');
         });

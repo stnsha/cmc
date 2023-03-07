@@ -22,20 +22,25 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update()
+    public function update($id)
     {
-        return view('products.update');
+        return view('products.update', [
+            'venue' => Venue::find($id),
+            'pricings' => Pricing::all(),
+        ]);
     }
 
     public function create()
     {
-        return view('products.create');
+        $pricings = Pricing::all();
+        return view('products.create', ['pricings' => $pricings]);
     }
 
     public function submit(Request $request)
     {
         $validated = request()->validate([
-            'venue' => ['string', 'required'],
+            'venue_name' => ['string', 'required'],
+            'venue_location' => ['string', 'required'],
             'date_start' => ['required'],
             'date_end' => ['required'],
             'capacity' => ['numeric', 'required'],
@@ -74,19 +79,24 @@ class ProductController extends Controller
 
         if ($validated) {
             $venue = Venue::create([
-                'venue' => $request['venue'],
+                'venue_name' => $request['venue_name'],
+                'venue_location' => $request['venue_location'],
                 'date_start' => $request['date_start'],
                 'date_end' => $request['date_end'],
             ]);
 
-            foreach ($request['type'] as $key => $value) {
-                $i = 0;
-                Pricing::create([
-                    'type' => $key,
-                    'price' => $value[$i],
-                ]);
-                $i++;
+            if (count(Pricing::all()) == 0) {
+                foreach ($request['type'] as $key => $value) {
+                    $i = 0;
+                    Pricing::create([
+                        'type' => $key,
+                        'price' => $value[$i],
+                    ]);
+                    $i++;
+                }
             }
+
+            
 
             foreach ($date_range as $item) {
                 Capacity::create([
@@ -102,5 +112,18 @@ class ProductController extends Controller
         return redirect()
             ->route('product.view')
             ->with('success', 'Venue is successfully created.');
+    }
+
+    public function update_venue(Request $request, $id)
+    {
+        $venue = Venue::find($id);
+        $venue->venue_name = $request['venue_name'];
+        $venue->venue_location = $request['venue_location'];
+        $venue->date_start = $request['date_start'];
+        $venue->date_end = $request['date_end'];
+        $venue->save();
+        return redirect()
+            ->route('product.view')
+            ->with('success', 'Venue is successfully updated.');
     }
 }
