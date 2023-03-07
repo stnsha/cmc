@@ -12,7 +12,7 @@
                 </span>
                 <span class="flex ml-4">
                     Tempat: Dewan Chermin, Nilai<br>
-                    Tarikh: 26 Mac 2023 - 18 April 2023
+                    Tarikh: 27 Mac 2023 - 19 April 2023
                 </span>
             </div>
             <a href="{{ route('order_form') }}" type="button"
