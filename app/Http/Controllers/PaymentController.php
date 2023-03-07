@@ -18,11 +18,11 @@ class PaymentController extends Controller
         // Set your secret key. Remember to switch to your live secret key in production.
         // See your keys here: https://dashboard.stripe.com/apikeys
 
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        //\Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        // \Stripe\Stripe::setApiKey(
-        //     'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
-        // );
+        \Stripe\Stripe::setApiKey(
+            'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
+        );
 
         $intent = \Stripe\PaymentIntent::create([
             'amount' => number_format((float) $order->total, 2, '.', '') * 100,
@@ -43,10 +43,10 @@ class PaymentController extends Controller
 
     public function confirm_payment(Request $request)
     {
-       $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-        // $stripe = new \Stripe\StripeClient(
-        //     'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
-        // );
+       //$stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+        $stripe = new \Stripe\StripeClient(
+            'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
+        );
         $request->session()->flush();
         $all = $request->except('_token', '_method');
         $status = $all['redirect_status'];
