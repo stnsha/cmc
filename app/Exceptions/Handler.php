@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -27,8 +28,14 @@ class Handler extends ExceptionHandler
 
         // You can add your own exception here
         // so redirect to the home route
-        if ($e instanceof NotFoundHttpException) {
-            return redirect()->route('homepage');
+        if (Auth::check()) {
+            if ($e instanceof NotFoundHttpException) {
+                return redirect()->route('admin.dashboard');
+            }
+        } else {
+            if ($e instanceof NotFoundHttpException) {
+                return redirect()->route('homepage');
+            }
         }
 
         return parent::render($request, $e);

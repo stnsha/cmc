@@ -6,6 +6,7 @@ use App\Models\CustomerDetails;
 use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -20,7 +21,7 @@ class AdminController extends Controller
             'total_order' => $total_order,
             'total_sales' => $total_sales,
             'total_customers' => $total_customers,
-            'current_date' => $current_date
+            'current_date' => $current_date,
         ]);
     }
 }

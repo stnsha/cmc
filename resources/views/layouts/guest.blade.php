@@ -16,9 +16,7 @@
     <div class="font-sans text-gray-900 antialiased">
         <nav class="bg-slate-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="https://flowbite.com/" class="flex items-center">
-                    {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9"
-                        alt="Flowbite Logo" /> --}}
+                <a href="https://cahyamatacatering.com/" class="flex items-center">
                     <span class="self-center text-xl font-semibold whitespace-nowrap">Cahya Mata Catering</span>
                 </a>
                 <button data-collapse-toggle="navbar-default" type="button"
@@ -35,16 +33,27 @@
                 <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                     <ul
                         class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-slate-200">
+
                         <li>
                             <a href="#"
-                                class="block py-2 pl-3 pr-4 text-white bg-brown-cream rounded md:bg-transparent md:text-brown-cream md:p-0"
+                                class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent md:text-brown-cream mb-4 md:p-0"
                                 aria-current="page">Halaman Utama</a>
                         </li>
+                        @if (auth()->user())
+                        <li>
+                            <a href="{{ route('admin.dashboard')}}"
+                                class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base mb-4 text-center mt-6 p-4 w-[200px]">Admin
+                                dashboard</a>
+                        </li>
+                        @else
                         <li>
                             <a href="{{ route('order_form')}}"
-                                class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base text-center mt-6 p-4 w-[200px]">Iftar
+                                class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base mb-4 text-center mt-6 p-4 w-[200px]">Iftar
                                 Ramadan 2023</a>
                         </li>
+                        @endif
+
+
                     </ul>
                 </div>
             </div>
