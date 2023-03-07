@@ -47,6 +47,15 @@ class ProductController extends Controller
             'status' => ['string', 'required'],
         ]);
 
+        if ($request['date_end'] < $request['date_start']) {
+            return redirect()
+                ->route('product.create')
+                ->with(
+                    'fail',
+                    'Date end is earlier than date start. Please recheck.'
+                );
+        }
+
         function getDatesFromRange($start, $end, $format = 'Y-m-d')
         {
             // Declare an empty array
@@ -95,8 +104,6 @@ class ProductController extends Controller
                     $i++;
                 }
             }
-
-            
 
             foreach ($date_range as $item) {
                 Capacity::create([
