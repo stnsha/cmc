@@ -9,6 +9,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\VenueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +41,7 @@ Route::controller(LoginController::class)
 
 /** customer order */
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/order_form', 'order_form')->name('order_form');
+    Route::get('/order_form/{venue_id}', 'order_form')->name('order_form');
     Route::post('/submit_venue', 'submit_venue')->name('submit_venue');
     Route::get('/customer_details', 'customer_details')->name(
         'customer_details'
@@ -55,6 +56,15 @@ Route::controller(OrderController::class)->group(function () {
     );
 });
 
+/** venue */
+Route::controller(VenueController::class)
+    ->as('venue.')
+    ->prefix('venue')
+    ->group(function () {
+        Route::get('/all', 'view')->name('view');
+    });
+
+/** payment */
 Route::controller(PaymentController::class)->group(function () {
     Route::get('/submit_payment/{order_id}', 'submit_payment')->name(
         'submit_payment'

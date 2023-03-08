@@ -22,12 +22,12 @@ class OrderController extends Controller
         return view('orders.update', ['order' => Order::find($order_id)]);
     }
 
-    public function order_form()
+    public function order_form($venue_id)
     {
-        $venues = Venue::all();
+        $venue = Venue::find($venue_id);
         $capacities = Capacity::all();
         return view('order_form', [
-            'venues' => $venues,
+            'venues' => $venue,
             'capacities' => $capacities,
         ]);
     }

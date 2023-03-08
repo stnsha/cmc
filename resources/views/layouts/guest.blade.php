@@ -36,7 +36,7 @@
 
                         <li>
                             <a href="#"
-                                class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent md:text-brown-cream mb-4 md:p-0"
+                                class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent md:text-brown-cream mb-4 sm:mb-0 md:p-0"
                                 aria-current="page">Halaman Utama</a>
                         </li>
                         @if (auth()->user())
@@ -46,8 +46,9 @@
                                 dashboard</a>
                         </li>
                         @else
+                        {{-- route('order_form') --}}
                         <li>
-                            <a href="{{ route('order_form')}}"
+                            <a href="#"
                                 class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base mb-4 text-center mt-6 p-4 w-[200px]">Iftar
                                 Ramadan 2023</a>
                         </li>

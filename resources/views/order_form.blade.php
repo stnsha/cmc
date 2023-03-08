@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="flex flex-col m-4 sm:m-[35px]">
+    <div class="flex flex-col sm:m-[35px]">
         <ol class="flex justify-center items-center w-full text-sm font-medium text-center text-gray-500 sm:text-base">
             <li
                 class="flex md:w-full items-center text-brown-cream sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10">
@@ -28,16 +28,18 @@
                 Confirmation
             </li>
         </ol>
-        <div class="flex flex-row">
-            <div class="flex flex-row hidden sm:block">
+        <div class="flex flex-col sm:flex-row">
+            <div>
                 <img src="{{ asset('img/arena.jpg') }}" class="max-w-full h-auto">
             </div>
-            <div class="flex m-4 sm:mx-[150px]">
+            <div class="flex flex-col justify-center items-center mx-0 sm:mx-[50px]">
+                <span class="text-2xl font-bold text-center sm:mb-4">Dewan Arena CMC, Ujong Pasir</span>
                 <form action="{{ route('submit_venue') }}" method="post">
                     @csrf
                     @method('post')
                     @if(session()->has('success'))
-                    <div class="bg-green-100 text-sm font-normal border rounded-md border-green-400 text-green-700 px-4 py-3">
+                    <div
+                        class="bg-green-100 text-sm font-normal border rounded-md border-green-400 text-green-700 px-4 py-3">
                         {{ session()->get('success') }}
                     </div>
                     @endif
@@ -83,7 +85,7 @@
                                 date('d-m-Y l', strtotime($item->venue_date)).' -
                                 '.$item->venue->venue.' ('.$item->current_capacity.'/'.$item->max_capacity.')'}}
                             </option>
-            
+
                             @endforeach
                         </select>
                     </div>
@@ -101,7 +103,8 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="flex w-full inline-flex items-center my-2"><label for="adult" class="mx-4 w-2/5">Elderly &
+                    <div class="flex w-full inline-flex items-center my-2"><label for="adult" class="mx-4 w-2/5">Elderly
+                            &
                             kids (RM 39.00)</label>
                         <select name="kids"
                             class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -113,7 +116,8 @@
                         </select>
                     </div>
                     <div class="mx-4">
-                        <span class="text-sm font-normal text-red-500">*Warga emas berumur 60 tahun ke atas & 6 - 12 tahun
+                        <span class="text-sm font-normal text-red-500">*Warga emas berumur 60 tahun ke atas & 6 - 12
+                            tahun
                             bagi
                             kanak-kanak</span>
                     </div>

@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="flex flex-row justify-center text-base text-gray-900 bg-cover bg-scroll"
-        style="background-image: url('img/img3.jpg');">
+        style="background-image: url('img/header.webp');">
         <div
             class="flex flex-col bg-slate-200 mt-[150px] my-[150px] p-[100px] rounded-lg md:ml-0 p-[50px] lg:ml-0 p-[50px] sm:ml-[650px] md:ml-0">
             <span class="flex text-5xl font-bold text-secondary p-2">Iftar Ramadhan 2023</span>
@@ -15,7 +15,7 @@
                     Tarikh: 27 Mac 2023 - 19 April 2023
                 </span>
             </div>
-            <a href="{{ route('order_form') }}" type="button"
+            <a href="{{-- route('order_form') --}}" type="button"
                 class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base text-center mt-6 p-4 w-[200px]">Tempah
                 sekarang</a>
         </div>
