@@ -15,7 +15,8 @@ return new class extends Migration {
     {
         Schema::create('pricings', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('description');
+            $table->integer('type');
             $table->double('price');
             $table->softDeletes();
             $table->timestamps();
@@ -23,15 +24,29 @@ return new class extends Migration {
 
         $data = [
             [
-                'type' => 'Adult',
+                'description' => 'Dewasa',
+                'type' => 1,
                 'price' => 65,
             ],
             [
-                'type' => 'Elderly & kids',
+                'description' => 'Warga emas & kanak-kanak',
+                'type' => 2,
                 'price' => 39,
             ],
             [
-                'type' => 'Group',
+                'description' => 'Kanak-kanak bawah 5 tahun - tanpa kerusi',
+                'type' => 3,
+                'price' => 0,
+            ],
+            [
+                'description' =>
+                    'Kanak-kanak bawah 5 tahun - kerusi diperlukan',
+                'type' => 4,
+                'price' => 10,
+            ],
+            [
+                'description' => 'Group',
+                'type' => 3,
                 'price' => 59,
             ],
         ];

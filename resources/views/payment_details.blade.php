@@ -34,10 +34,31 @@
         </ol>
         <div class="flex flex-row">
             <div class="flex flex-col w-full mt-16 bg-secondary-100">
-                <span class="text-2xl font-bold text-center text-gray-900 my-8">Order summary</span>
+                <div class="flex flex-col items-center mb-4 mx-auto">
+                    <span class="text-2xl font-bold text-center text-gray-900 my-8">Customer details</span>
+                    <div class="flex flex-row items-start">
+                        <span class="text-md font-bold mx-4">Name</span>
+                        <span class="text-md font-normal mx-4">{{ $order->customer_name }}</span>
+                    </div>
+                    <div class="flex flex-row">
+                        <span class="text-md font-bold mx-4">Phone</span>
+                        <span class="text-md font-normal mx-4">{{ $order->customer_phone }}</span>
+                    </div>
+                    <div class="flex flex-row">
+                        <span class="text-md font-bold mx-4">Email</span>
+                        <span class="text-md font-normal mx-4">{{ $order->customer_email }}</span>
+                    </div>
+                    <div class="bg-red-100 border border-red-500 rounded-md p-4 m-2">
+                        <span class="text-sm font-normal text-red-500">*Sila pastikan email anda adalah betul dan aktif
+                            sebelum
+                            membuat
+                            pembayaran untuk menerima resit tempahan.</span>
+                    </div>
+                </div>
+                <span class="text-2xl font-bold text-center text-gray-900 mb-8">Order summary</span>
                 <div
-                    class="flex flex-row relative overflow-x-auto w-full justify-center items-center0 mx-auto rounded-lg">
-                    <table class="h-full mx-12">
+                    class="flex flex-row relative overflow-x-auto w-full justify-center items-center mx-auto rounded-lg">
+                    <table class="w-full h-full p-12">
                         <thead>
                             <tr class="border-b whitespace-normal">
                                 <th class="text-md font-bold text-gray-700 pl-2 sm:px-8 sm:py-4">Customer type</th>
@@ -50,7 +71,7 @@
                             @foreach ($order->order_details as $item)
                             <tr class="border-b">
                                 <td class="text-md font-normal text-gray-900 pl-2 sm:px-8 sm:py-4">{{
-                                    $item->pricing->type }}
+                                    $item->pricing->description }}
                                 </td>
                                 <td class="text-md font-normal text-gray-900 pl-2 sm:px-8 sm:py-4">RM {{
                                     number_format($item->pricing->price,
@@ -77,7 +98,7 @@
                         order</a>
                     <a href="{{ route('submit_payment', ['order_id' => $order->id]) }}" type="button"
                         class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base text-center mt-2 p-4">Proceed
-                        to payment</a>
+                    </a>
                 </div>
             </div>
         </div>

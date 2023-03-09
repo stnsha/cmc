@@ -41,10 +41,10 @@ class MailController extends Controller
     public function email_receipt($order_id)
     {
         $order = Order::find($order_id);
-        $venue = Capacity::find($order->venue_id);
-        $venue_id = $venue->venue_id;
+        $capacity = Capacity::find($order->capacity_id);
+        $venue_id = $capacity->venue_id;
         $venue = Venue::find($venue_id);
-        $venue = $venue->venue;
+        $venue = $venue->venue_name . ', ' . $venue->venue_location;
         $venue_date = date('d-m-Y l', strtotime($order->date_chosen));
 
         $mailData = [
@@ -55,6 +55,11 @@ class MailController extends Controller
         //dd($mailData['order']['subtotal']);
         Mail::to($order->customer_email)->send(new EmailReceipt($mailData));
 
-        return view('payment.confirm', ['order' => $order]);
+        return redirect()->route('mail.success');
+    }
+
+    public function success()
+    {
+        return view('payment.confirm');
     }
 }

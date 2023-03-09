@@ -16,11 +16,8 @@ class Order extends Model
         'customer_name',
         'customer_phone',
         'customer_email',
-        'customer_id',
-        'user_id',
-        'order_details_id',
         'total',
-        'venue_id',
+        'capacity_id',
         'date_chosen',
         'fpx_id',
         'status',
@@ -38,6 +35,6 @@ class Order extends Model
 
     public function capacities(): HasOne
     {
-        return $this->hasOne(Capacity::class, 'id', 'venue_id');
+        return $this->hasOne(Capacity::class, 'id', 'capacity_id');
     }
 }

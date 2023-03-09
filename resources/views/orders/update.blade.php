@@ -86,32 +86,13 @@
             </div>
             @foreach ($order->order_details as $item)
             <div class="flex w-full inline-flex items-center my-2">
-                <label for="price" class="mx-4 w-1/3">{{ $item->pricing->type }}</label>
+                <label for="price" class="mx-4 w-1/3">{{ $item->pricing->description }}</label>
                 <input type="text" name="price"
                     value="{{ $item->price ? 'RM '. number_format((float)$item->price, 2, '.', '') : old('price') }}"
                     class="bg-gray-200 w-1/3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mx-2"
                     required readonly>
                 <input type="text" name="quantity" value="{{ $item->quantity ? $item->quantity : old('quantity') }}"
                     class="bg-gray-200 w-1/3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mx-2"
-                    required readonly>
-            </div>
-            @endforeach
-            <div class="flex w-full inline-flex items-center my-2">
-                <div class="flex w-full inline-flex items-center my-2">
-                    <label for="Pricing" class="mx-4 w-full font-bold text-center">Customer details</label>
-                </div>
-            </div>
-            @foreach ($order->customers as $item)
-            <div class="flex w-full inline-flex items-center my-2">
-                <label for="Adults" class="mx-4 w-2/5">Customer name</label>
-                <input type="text" name="customer_name" value="{{ $item->customer_name }}"
-                    class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    required readonly>
-            </div>
-            <div class="flex w-full inline-flex items-center my-2">
-                <label for="Adults" class="mx-4 w-2/5">Phone no.</label>
-                <input type="text" name="customer_phone" value="{{ $item->customer_phone }}"
-                    class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     required readonly>
             </div>
             @endforeach

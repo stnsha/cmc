@@ -46,9 +46,9 @@
                                 dashboard</a>
                         </li>
                         @else
-                        {{-- route('order_form') --}}
+
                         <li>
-                            <a href="#"
+                            <a href="{{ route('venue.view') }}"
                                 class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base mb-4 text-center mt-6 p-4 w-[200px]">Iftar
                                 Ramadan 2023</a>
                         </li>

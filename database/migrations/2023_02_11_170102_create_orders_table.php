@@ -17,11 +17,8 @@ return new class extends Migration {
             $table->string('customer_name');
             $table->string('customer_phone');
             $table->string('customer_email');
-            $table->integer('customer_id')->nullable();
-            $table->integer('user_id')->nullable();
-            $table->integer('order_details_id')->nullable();
             $table->double('total');
-            $table->integer('venue_id');
+            $table->integer('capacity_id');
             $table->dateTime('date_chosen');
             $table->string('fpx_id')->nullable();
             $table->string('status')->default('Pending');

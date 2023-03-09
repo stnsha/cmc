@@ -53,7 +53,7 @@
         @foreach ($mailData['order']->order_details as $item)
         <tr>
             <td>
-                {{ $item->pricing->type }}
+                {{ $item->pricing->description }}
             </td>
             <td>
                 RM {{ number_format($item->price, 2) }}

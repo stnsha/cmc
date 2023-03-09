@@ -46,9 +46,12 @@ Route::controller(OrderController::class)->group(function () {
     Route::get('/customer_details', 'customer_details')->name(
         'customer_details'
     );
-    Route::post('/submit_details', 'submit_details')->name('submit_details');
+    Route::get('/submit_details', 'submit_details')->name('submit_details');
     Route::get('/payment_details/{order_id}', 'payment_details')->name(
         'payment_details'
+    );
+    Route::put('/update_order/{order_id}', 'update_order')->name(
+        'update_order'
     );
     Route::get('/edit_order/{order_id}', 'edit_order')->name('edit_order');
     Route::post('/update_customer/{order_id}', 'update_customer')->name(
@@ -81,6 +84,7 @@ Route::controller(MailController::class)
         );
         Route::get('/confirm/{email}', 'email_verified')->name('confirm');
         Route::get('/order/{order_id}', 'email_receipt')->name('email_receipt');
+        Route::get('/success', 'success')->name('success');
     });
 
 Route::middleware('auth')->group(function () {

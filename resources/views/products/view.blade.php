@@ -60,7 +60,7 @@
                         <div class="flex flex-col items-start">
                             @foreach ($pricings as $price)
                             <div class="inline-flex">
-                                <span class="text-sm font-normal text-gray-500 mr-2">{{ $price->type }}:</span>
+                                <span class="text-sm font-normal text-gray-500 mr-2">{{ $price->description }}:</span>
                                 <span class="text-sm font-normal text-gray-500">RM {{ number_format($price->price, 2)
                                     }}</span>
                             </div>

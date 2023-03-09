@@ -24,20 +24,22 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        // $data = [
-        //     [
-        //         'venue' => 'Dewan Arena CMC, Ujong Pasir',
-        //         'date_start' => '2023-03-24 18:00:00',
-        //         'date_end' => '2023-04-18 00:00:00',
-        //     ],
-        //     [
-        //         'venue' => 'Dewan Chermin, Nilai',
-        //         'date_start' => '2023-03-27 00:00:00',
-        //         'date_end' => '2023-04-19 00:00:00',
-        //     ],
-        // ];
+        $data = [
+            [
+                'venue_name' => 'Dewan Arena CMC',
+                'venue_location' => 'Ujong Pasir',
+                'date_start' => '2023-03-24 18:30:00',
+                'date_end' => '2023-04-18 18:30:00',
+            ],
+            [
+                'venue_name' => 'Dewan Chermin',
+                'venue_location' => 'Nilai',
+                'date_start' => '2023-03-27 18:30:00',
+                'date_end' => '2023-04-19 18:30:00',
+            ],
+        ];
 
-        // DB::table('venue')->insert($data);
+        DB::table('venues')->insert($data);
     }
 
     /**

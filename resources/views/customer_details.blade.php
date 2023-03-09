@@ -93,7 +93,7 @@
                             class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             required>
                     </div>
-                    <div class="flex w-full inline-flex items-center my-2">
+                    {{-- <div class="flex w-full inline-flex items-center my-2">
                         <label for="Adults" class="mx-4 w-2/5">Your email</label>
                         <input type="text" name="customer_email"
                             value="{{ session()->get('venue_details')[0]['customer_email'] }}"
@@ -106,8 +106,8 @@
                             value="{{ session()->get('venue_details')[0]['customer_phone'] }}"
                             class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             required>
-                    </div>
-                    @for ($i = 1; $i < session()->get('venue_details')[1]; $i++)
+                    </div> --}}
+                    {{-- @for ($i = 1; $i < session()->get('venue_details')[1]; $i++)
                         <div class="flex w-full inline-flex items-center my-2">
                             <label for="Adults" class="mx-4 w-2/5">Customer name</label>
                             <input type="text" name="customer_details[]"
@@ -120,7 +120,7 @@
                                 class="bg-gray-50 w-3/5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 required>
                         </div>
-                        @endfor
+                        @endfor --}}
                         <div class="flex justify-end w-full inline-flex items-center my-2">
                             <button
                                 class="text-white bg-brown-cream hover:bg-light-brown focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Next</button>

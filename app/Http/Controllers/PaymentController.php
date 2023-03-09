@@ -18,11 +18,11 @@ class PaymentController extends Controller
         // Set your secret key. Remember to switch to your live secret key in production.
         // See your keys here: https://dashboard.stripe.com/apikeys
 
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        // \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        // \Stripe\Stripe::setApiKey(
-        //     'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
-        // );
+        \Stripe\Stripe::setApiKey(
+            'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
+        );
 
         $intent = \Stripe\PaymentIntent::create([
             'amount' => number_format((float) $order->total, 2, '.', '') * 100,
@@ -43,13 +43,14 @@ class PaymentController extends Controller
 
     public function confirm_payment(Request $request)
     {
-        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-        // $stripe = new \Stripe\StripeClient(
-        //     'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
-        // );
+        //$stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+        $stripe = new \Stripe\StripeClient(
+            'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
+        );
         $request->session()->flush();
         $all = $request->except('_token', '_method');
         $status = $all['redirect_status'];
+        $total_customers = 0;
 
         $data = $stripe->paymentIntents->retrieve($all['payment_intent']);
 
@@ -60,12 +61,13 @@ class PaymentController extends Controller
         $order->fpx_id = $fpx_id;
 
         if ($status == 'succeeded') {
-            $capacity = Capacity::find($order->venue_id);
+            $capacity = Capacity::find($order->capacity_id);
 
-            $total_customers = CustomerDetails::where(
-                'order_id',
-                $order_id
-            )->count();
+            foreach ($order->order_details as $item) {
+                $total_customers += $item->quantity;
+            }
+
+            //dd($total_customers);
 
             $current_capacity = $capacity->max_capacity - $total_customers;
             $capacity->current_capacity = $current_capacity;
@@ -84,7 +86,7 @@ class PaymentController extends Controller
             $order->updated_at = Carbon::now();
             $order->save();
 
-            return view('payment.failed', ['order' => $order]);
+            return view('payment.failed');
         }
     }
 }
