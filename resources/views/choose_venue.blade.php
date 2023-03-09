@@ -12,7 +12,7 @@
                     class="bg-brown-cream hover:bg-light-brown rounded-md text-slate-200 font-medium text-base text-center p-4 w-[200px]">Tempah
                     untuk Dewan Arena CMC</a>
             </div>
-            
+
         </div>
         <div class="flex flex-col justify-center items-center w-full">
             <span class="text-2xl font-bold text-center my-4">Dewan Chermin, Nilai</span>
@@ -22,7 +22,7 @@
             </div>
             <div class="flex flex-col justify-center items-center mb-4">
 
-                <a href="{{ route('order_form', ['venue_id' => 1]) }}" type="button"
+                <a href="{{ route('order_form', ['venue_id' => 2]) }}" type="button"
                     class="bg-brown-cream hover:bg-light-brown rounded-md text-slate-200 font-medium text-base text-center p-4 w-[200px]">Tempah
                     untuk Dewan Chermin</a>
             </div>
