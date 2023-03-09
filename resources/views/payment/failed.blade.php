@@ -462,7 +462,7 @@
             <div class="flex flex-col m-8 justify-center items-center text-center">
                 <span class="text-2xl font-normal text-red-700">Unfortunately, your payment cannot be processed.</span>
                 <p class="text-lg font-normal text-red-700">Please try again.</p>
-                <a href="{{ route('order_form') }}" type="button"
+                <a href="{{ route('venue.view') }}" type="button"
                     class="bg-brown-cream hover:bg-light-brown m-2 rounded-md text-slate-200 font-medium text-base text-center mt-6 p-4 w-[200px]">Tempah
                     sekarang</a>
             </div>
