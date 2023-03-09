@@ -20,9 +20,9 @@ class PaymentController extends Controller
 
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        //\Stripe\Stripe::setApiKey(
-            'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
-        );
+        // //\Stripe\Stripe::setApiKey(
+        //     'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
+        // );
 
         $intent = \Stripe\PaymentIntent::create([
             'amount' => number_format((float) $order->total, 2, '.', '') * 100,
