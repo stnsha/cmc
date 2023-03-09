@@ -46,7 +46,7 @@ return new class extends Migration {
             ],
             [
                 'description' => 'Group',
-                'type' => 3,
+                'type' => 5,
                 'price' => 59,
             ],
         ];
