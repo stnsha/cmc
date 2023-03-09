@@ -41,6 +41,7 @@ Route::controller(LoginController::class)
 
 /** customer order */
 Route::controller(OrderController::class)->group(function () {
+    Route::get('/order_form', 'old_order_form');
     Route::get('/order_form/{venue_id}', 'order_form')->name('order_form');
     Route::post('/submit_venue', 'submit_venue')->name('submit_venue');
     Route::get('/customer_details', 'customer_details')->name(

@@ -13,6 +13,11 @@ use Stripe\Price;
 
 class OrderController extends Controller
 {
+    public function old_order_form()
+    {
+        return redirect()->route('venue.view');
+    }
+
     public function view()
     {
         return view('orders.view', ['orders' => Order::paginate(10)]);
@@ -27,10 +32,15 @@ class OrderController extends Controller
     {
         $venue = Venue::find($venue_id);
         $capacities = Capacity::where('venue_id', $venue_id)->get();
-        return view('order_form', [
-            'venue' => $venue,
-            'capacities' => $capacities,
-        ]);
+
+        if (!$venue) {
+            return redirect()->route('venue.view');
+        } else {
+            return view('order_form', [
+                'venue' => $venue,
+                'capacities' => $capacities,
+            ]);
+        }
     }
 
     public function submit_venue(Request $request)

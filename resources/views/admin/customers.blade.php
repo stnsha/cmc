@@ -47,10 +47,10 @@
                     <td class="px-2 py-3 text-end">{{ $loop->iteration }}.</td>
                     <td class="px-2 py-3">{{ $item->customer_name }}</td>
                     <td class="px-2 py-3">{{ $item->customer_phone }}</td>
-                    <td class="px-2 py-3 font-bold">#{{ $item->order_id }}</td>
+                    <td class="px-2 py-3 font-bold">#{{ $item->id }}</td>
                     <td class="py-3 justify-center items-center content-center">
                         <div class="flex flex-col w-1/2 text-center">
-                            <a href="{{ route('orders.view_order', ['order_id' => $item->order_id]) }}" type="button"
+                            <a href="{{ route('orders.view_order', ['order_id' => $item->id]) }}" type="button"
                                 class="bg-medium-gray text-white px-2.5 py-2.5 text-sm font-normal rounded-xl mb-3">View
                                 order</a>
                         </div>
