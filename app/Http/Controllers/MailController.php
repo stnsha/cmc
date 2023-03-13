@@ -52,8 +52,10 @@ class MailController extends Controller
             'venue' => $venue,
             'venue_date' => $venue_date,
         ];
+
+        $emails = [$order->customer_email, 'admin@cahyamatacatering.com'];
         //dd($mailData['order']['subtotal']);
-        Mail::to($order->customer_email)->send(new EmailReceipt($mailData));
+        Mail::to($emails)->send(new EmailReceipt($mailData));
 
         return redirect()->route('mail.success');
     }

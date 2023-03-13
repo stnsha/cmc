@@ -20,7 +20,7 @@ class PaymentController extends Controller
 
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        // //\Stripe\Stripe::setApiKey(
+        // \Stripe\Stripe::setApiKey(
         //     'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
         // );
 
@@ -44,7 +44,7 @@ class PaymentController extends Controller
     public function confirm_payment(Request $request)
     {
         $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-        // //$stripe = new \Stripe\StripeClient(
+        // $stripe = new \Stripe\StripeClient(
         //     'sk_test_51MgKcIJLVz02y2VzJ9UTdBxzPCB4nTEf94hhqZazHgFMvPhmSW6QfLycns7MTAxHh48dLXh3hyTx8U0rQxtDojzh00ZQUVrVtq'
         // );
         $request->session()->flush();
