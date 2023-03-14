@@ -194,6 +194,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -209,7 +210,7 @@ return [
 
     'aliases' => Facade::defaultAliases()
         ->merge([
-            // 'ExampleClass' => App\Example\ExampleClass::class,
+            'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         ])
         ->toArray(),
 ];

@@ -23,4 +23,9 @@ class OrderDetails extends Model
     {
         return $this->hasOne(Pricing::class, 'id', 'pricing_id');
     }
+
+    public function order(): HasOne
+    {
+        return $this->hasOne(Order::class, 'id', 'order_id');
+    }
 }

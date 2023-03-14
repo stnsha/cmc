@@ -20,7 +20,9 @@ class OrderController extends Controller
 
     public function view()
     {
-        return view('orders.view', ['orders' => Order::paginate(10)]);
+        return view('orders.view', [
+            'orders' => Order::orderBy('created_at', 'DESC')->paginate(10),
+        ]);
     }
 
     public function view_order($order_id)

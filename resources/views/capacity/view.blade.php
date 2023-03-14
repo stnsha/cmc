@@ -2,8 +2,10 @@
     <div class="text-lg font-bold text-secondary mb-6">Venue Capacity</div>
     <div class="flex justify-start mb-4">
         <a href="{{ route('product.view') }}" type="button"
-            class="text-white bg-brown-cream hover:bg-light-brown focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">View other
+            class="text-white bg-brown-cream hover:bg-light-brown focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">View
+            other
             venue</a>
+
     </div>
     @if(session()->has('success'))
     <div class="bg-green-100 text-sm font-normal border rounded-md border-green-400 text-green-700 px-4 py-3">
@@ -67,6 +69,9 @@
                             <a href="{{ route('capacity.update', ['id' => $item->id]) }}" type="button"
                                 class="bg-medium-gray text-white px-2.5 py-2.5 text-sm font-normal rounded-xl mb-3">Update
                                 capacity</a>
+                            <a href="{{ route('capacity.download_excel', ['id' => $item->id]) }}" type="button"
+                                class="text-white bg-brown-cream hover:bg-light-brown focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Download
+                                Excel</a>
                         </div>
                     </td>
                 </tr>

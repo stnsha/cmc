@@ -160,6 +160,9 @@ Route::middleware('auth')->group(function () {
             );
             Route::get('/create', 'create')->name('create');
             Route::post('/submit', 'submit')->name('submit');
+            Route::get('/download_excel/{id}', 'download_excel')->name(
+                'download_excel'
+            );
         });
 });
 

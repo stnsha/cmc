@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportOrder;
 use App\Models\Capacity;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CapacityController extends Controller
 {
@@ -42,5 +44,10 @@ class CapacityController extends Controller
                 $capacity->venue_id
             )->paginate(10),
         ]);
+    }
+
+    public function download_excel($id)
+    {
+        return Excel::download(new ExportOrder($id), 'orders.xlsx');
     }
 }

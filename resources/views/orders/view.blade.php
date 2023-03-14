@@ -37,6 +37,9 @@
                         Status
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Date
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Action
                     </th>
                 </tr>
@@ -57,6 +60,9 @@
                     </td>
                     <td class="py-3">
                         {{ $item->status }}
+                    </td>
+                    <td class="py-3">
+                        {{ $item->created_at }}
                     </td>
                     <td class="py-3 justify-center items-center content-center">
                         <div class="flex flex-col w-1/2 text-center">
