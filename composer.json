@@ -12,7 +12,6 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.11",
-        "maatwebsite/excel": "^3.1",
         "psr/simple-cache": "2.0",
         "stripe/stripe-php": "^10.8"
     },
